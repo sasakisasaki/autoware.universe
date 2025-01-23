@@ -8,20 +8,20 @@
       
       
       
-        <link rel="canonical" href="https://autowarefoundation.github.io/autoware.universe/main/simulator/simple_planning_simulator/">
+        <link rel="canonical" href="https://autowarefoundation.github.io/autoware.universe/main/control/autoware_predicted_path_checker/">
       
       
-        <link rel="prev" href="../learning_based_vehicle_model/">
+        <link rel="prev" href="../autoware_pid_longitudinal_controller/">
       
       
-        <link rel="next" href="docs/actuation_cmd_sim/">
+        <link rel="next" href="../autoware_pure_pursuit/">
       
       <link rel="icon" href="../../docs/assets/images/autoware-foundation.png">
       <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.20">
     
     
       
-        <title>simple_planning_simulator - Autoware Universe Documentation</title>
+        <title>Predicted Path Checker - Autoware Universe Documentation</title>
       
     
     
@@ -77,7 +77,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#simple_planning_simulator" class="md-skip">
+        <a href="#predicted-path-checker" class="md-skip">
           Skip to content
         </a>
       
@@ -116,7 +116,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              simple_planning_simulator
+              Predicted Path Checker
             
           </span>
         </div>
@@ -224,6 +224,8 @@
         
   
   
+    
+  
 
 
   
@@ -235,7 +237,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../control/autoware_autonomous_emergency_braking/" class="md-tabs__link">
+      <a href="../autoware_autonomous_emergency_braking/" class="md-tabs__link md-tabs__link--active">
         Control
       </a>
     </li>
@@ -401,8 +403,6 @@
         
   
   
-    
-  
 
 
   
@@ -414,7 +414,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../autoware_carla_interface/" class="md-tabs__link md-tabs__link--active">
+      <a href="../../simulator/autoware_carla_interface/" class="md-tabs__link">
         Simulator
       </a>
     </li>
@@ -1595,16 +1595,16 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
       
       
-        
-      
-      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
       
       
         
@@ -1651,7 +1651,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
         <label class="md-nav__title" for="__nav_2">
           <span class="md-nav__icon md-icon"></span>
           Control
@@ -1686,7 +1686,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../control/autoware_autonomous_emergency_braking/">Autoware autonomous emergency braking</a>
+          <a href="../autoware_autonomous_emergency_braking/">Autoware autonomous emergency braking</a>
           
         </div>
       
@@ -1734,7 +1734,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../control/autoware_collision_detector/">Autoware collision detector</a>
+          <a href="../autoware_collision_detector/">Autoware collision detector</a>
           
         </div>
       
@@ -1782,7 +1782,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../control/autoware_control_validator/">Autoware control validator</a>
+          <a href="../autoware_control_validator/">Autoware control validator</a>
           
         </div>
       
@@ -1830,7 +1830,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../control/autoware_external_cmd_selector/">Autoware external cmd selector</a>
+          <a href="../autoware_external_cmd_selector/">Autoware external cmd selector</a>
           
         </div>
       
@@ -1878,7 +1878,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../control/autoware_joy_controller/">Autoware joy controller</a>
+          <a href="../autoware_joy_controller/">Autoware joy controller</a>
           
         </div>
       
@@ -1926,7 +1926,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../control/autoware_lane_departure_checker/">Autoware lane departure checker</a>
+          <a href="../autoware_lane_departure_checker/">Autoware lane departure checker</a>
           
         </div>
       
@@ -1976,7 +1976,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../control/autoware_mpc_lateral_controller/">Autoware mpc lateral controller</a>
+          <a href="../autoware_mpc_lateral_controller/">Autoware mpc lateral controller</a>
           
             <label for="__nav_2_7">
               <span class="md-nav__icon md-icon"></span>
@@ -1999,7 +1999,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../control/autoware_mpc_lateral_controller/model_predictive_control_algorithm/" class="md-nav__link">
+      <a href="../autoware_mpc_lateral_controller/model_predictive_control_algorithm/" class="md-nav__link">
         MPC Algorithm
       </a>
     </li>
@@ -2042,7 +2042,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../control/autoware_obstacle_collision_checker/">Autoware obstacle collision checker</a>
+          <a href="../autoware_obstacle_collision_checker/">Autoware obstacle collision checker</a>
           
         </div>
       
@@ -2090,7 +2090,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../control/autoware_operation_mode_transition_manager/">Autoware operation mode transition manager</a>
+          <a href="../autoware_operation_mode_transition_manager/">Autoware operation mode transition manager</a>
           
         </div>
       
@@ -2138,7 +2138,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../control/autoware_pid_longitudinal_controller/">Autoware pid longitudinal controller</a>
+          <a href="../autoware_pid_longitudinal_controller/">Autoware pid longitudinal controller</a>
           
         </div>
       
@@ -2162,18 +2162,18 @@
               
   
   
+    
+  
   
     
       
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
       
       
       
-        
-      
-      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_11" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_11" checked>
       
       
         
@@ -2185,15 +2185,15 @@
       
         
         
-        <div class="md-nav__link md-nav__link--index ">
-          <a href="../../control/autoware_pure_pursuit/">Autoware pure pursuit</a>
+        <div class="md-nav__link md-nav__link--index md-nav__link--active">
+          <a href="./">Autoware predicted path checker</a>
           
         </div>
       
-      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_11_label" aria-expanded="false">
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_11_label" aria-expanded="true">
         <label class="md-nav__title" for="__nav_2_11">
           <span class="md-nav__icon md-icon"></span>
-          Autoware pure pursuit
+          Autoware predicted path checker
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -2234,14 +2234,14 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../control/autoware_shift_decider/">Autoware shift decider</a>
+          <a href="../autoware_pure_pursuit/">Autoware pure pursuit</a>
           
         </div>
       
       <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_12_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_2_12">
           <span class="md-nav__icon md-icon"></span>
-          Autoware shift decider
+          Autoware pure pursuit
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -2282,14 +2282,14 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../control/autoware_smart_mpc_trajectory_follower/">Autoware smart mpc trajectory follower</a>
+          <a href="../autoware_shift_decider/">Autoware shift decider</a>
           
         </div>
       
       <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_13_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_2_13">
           <span class="md-nav__icon md-icon"></span>
-          Autoware smart mpc trajectory follower
+          Autoware shift decider
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -2330,14 +2330,14 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../control/autoware_trajectory_follower_base/">Autoware trajectory follower base</a>
+          <a href="../autoware_smart_mpc_trajectory_follower/">Autoware smart mpc trajectory follower</a>
           
         </div>
       
       <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_14_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_2_14">
           <span class="md-nav__icon md-icon"></span>
-          Autoware trajectory follower base
+          Autoware smart mpc trajectory follower
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -2373,82 +2373,22 @@
             
           
         
-          
-        
       
       
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../control/autoware_trajectory_follower_node/">Autoware trajectory follower node</a>
-          
-            <label for="__nav_2_15">
-              <span class="md-nav__icon md-icon"></span>
-            </label>
+          <a href="../autoware_trajectory_follower_base/">Autoware trajectory follower base</a>
           
         </div>
       
       <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_15_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_2_15">
           <span class="md-nav__icon md-icon"></span>
-          Autoware trajectory follower node
+          Autoware trajectory follower base
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
-            
-          
-            
-              
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-      
-      
-        
-      
-      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_15_2" >
-      
-      
-        
-          
-        
-      
-      
-        <label class="md-nav__link" for="__nav_2_15_2" id="__nav_2_15_2_label" tabindex="0">
-          Design
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_15_2_label" aria-expanded="false">
-        <label class="md-nav__title" for="__nav_2_15_2">
-          <span class="md-nav__icon md-icon"></span>
-          Design
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../control/autoware_trajectory_follower_node/design/simple_trajectory_follower-design/" class="md-nav__link">
-        Simple Trajectory Follower
-      </a>
-    </li>
-  
-
-            
-          
-        </ul>
-      </nav>
-    </li>
-  
-
             
           
         </ul>
@@ -2481,22 +2421,82 @@
             
           
         
+          
+        
       
       
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../control/autoware_vehicle_cmd_gate/">Autoware vehicle cmd gate</a>
+          <a href="../autoware_trajectory_follower_node/">Autoware trajectory follower node</a>
+          
+            <label for="__nav_2_16">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
           
         </div>
       
       <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_16_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_2_16">
           <span class="md-nav__icon md-icon"></span>
-          Autoware vehicle cmd gate
+          Autoware trajectory follower node
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_16_2" >
+      
+      
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2_16_2" id="__nav_2_16_2_label" tabindex="0">
+          Design
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_16_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_16_2">
+          <span class="md-nav__icon md-icon"></span>
+          Design
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../autoware_trajectory_follower_node/design/simple_trajectory_follower-design/" class="md-nav__link">
+        Simple Trajectory Follower
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
             
           
         </ul>
@@ -2534,14 +2534,14 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../control/control_performance_analysis/">Control performance analysis</a>
+          <a href="../autoware_vehicle_cmd_gate/">Autoware vehicle cmd gate</a>
           
         </div>
       
       <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_17_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_2_17">
           <span class="md-nav__icon md-icon"></span>
-          Control performance analysis
+          Autoware vehicle cmd gate
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -2582,14 +2582,14 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../control/predicted_path_checker/">Predicted path checker</a>
+          <a href="../control_performance_analysis/">Control performance analysis</a>
           
         </div>
       
       <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_18_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_2_18">
           <span class="md-nav__icon md-icon"></span>
-          Predicted path checker
+          Control performance analysis
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -2873,14 +2873,14 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../evaluator/kinematic_evaluator/">Kinematic evaluator</a>
+          <a href="../../evaluator/autoware_scenario_simulator_v2_adapter/">Autoware scenario simulator v2 adapter</a>
           
         </div>
       
       <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_5_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_3_5">
           <span class="md-nav__icon md-icon"></span>
-          Kinematic evaluator
+          Autoware scenario simulator v2 adapter
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -2921,14 +2921,14 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../evaluator/scenario_simulator_v2_adapter/">Scenario simulator v2 adapter</a>
+          <a href="../../evaluator/kinematic_evaluator/">Kinematic evaluator</a>
           
         </div>
       
       <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_6_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_3_6">
           <span class="md-nav__icon md-icon"></span>
-          Scenario simulator v2 adapter
+          Kinematic evaluator
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -10591,16 +10591,16 @@
 
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10" checked>
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_10" >
       
       
         
@@ -10625,7 +10625,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="true">
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_10">
           <span class="md-nav__icon md-icon"></span>
           Simulator
@@ -10660,7 +10660,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../autoware_carla_interface/">Autoware carla interface</a>
+          <a href="../../simulator/autoware_carla_interface/">Autoware carla interface</a>
           
         </div>
       
@@ -10708,7 +10708,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../autoware_fault_injection/">Autoware fault injection</a>
+          <a href="../../simulator/autoware_fault_injection/">Autoware fault injection</a>
           
         </div>
       
@@ -10751,22 +10751,82 @@
             
           
         
+          
+        
       
       
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../autoware_vehicle_door_simulator/">Autoware vehicle door simulator</a>
+          <a href="../../simulator/autoware_simple_planning_simulator/">Autoware simple planning simulator</a>
+          
+            <label for="__nav_10_3">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
           
         </div>
       
       <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_10_3_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_10_3">
           <span class="md-nav__icon md-icon"></span>
-          Autoware vehicle door simulator
+          Autoware simple planning simulator
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_10_3_2" >
+      
+      
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_10_3_2" id="__nav_10_3_2_label" tabindex="0">
+          Docs
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_10_3_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_10_3_2">
+          <span class="md-nav__icon md-icon"></span>
+          Docs
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../simulator/autoware_simple_planning_simulator/docs/actuation_cmd_sim/" class="md-nav__link">
+        ACTUATION_CMD model
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
             
           
         </ul>
@@ -10804,14 +10864,14 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../dummy_perception_publisher/">Dummy perception publisher</a>
+          <a href="../../simulator/autoware_vehicle_door_simulator/">Autoware vehicle door simulator</a>
           
         </div>
       
       <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_10_4_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_10_4">
           <span class="md-nav__icon md-icon"></span>
-          Dummy perception publisher
+          Autoware vehicle door simulator
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -10852,125 +10912,65 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../learning_based_vehicle_model/">Learning based vehicle model</a>
+          <a href="../../simulator/dummy_perception_publisher/">Dummy perception publisher</a>
           
         </div>
       
       <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_10_5_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_10_5">
           <span class="md-nav__icon md-icon"></span>
+          Dummy perception publisher
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_10_6" >
+      
+      
+        
+          
+            
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../simulator/learning_based_vehicle_model/">Learning based vehicle model</a>
+          
+        </div>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_10_6_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_10_6">
+          <span class="md-nav__icon md-icon"></span>
           Learning based vehicle model
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
-            
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-    
-  
-  
-    
-      
-    
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
-      
-      
-      
-      
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10_6" checked>
-      
-      
-        
-          
-            
-          
-        
-          
-        
-      
-      
-        
-        
-        <div class="md-nav__link md-nav__link--index md-nav__link--active">
-          <a href="./">Simple planning simulator</a>
-          
-            <label for="__nav_10_6">
-              <span class="md-nav__icon md-icon"></span>
-            </label>
-          
-        </div>
-      
-      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_10_6_label" aria-expanded="true">
-        <label class="md-nav__title" for="__nav_10_6">
-          <span class="md-nav__icon md-icon"></span>
-          Simple planning simulator
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-          
-            
-              
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-      
-      
-        
-      
-      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_10_6_2" >
-      
-      
-        
-          
-        
-      
-      
-        <label class="md-nav__link" for="__nav_10_6_2" id="__nav_10_6_2_label" tabindex="0">
-          Docs
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_10_6_2_label" aria-expanded="false">
-        <label class="md-nav__title" for="__nav_10_6_2">
-          <span class="md-nav__icon md-icon"></span>
-          Docs
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="docs/actuation_cmd_sim/" class="md-nav__link">
-        ACTUATION_CMD model
-      </a>
-    </li>
-  
-
-            
-          
-        </ul>
-      </nav>
-    </li>
-  
-
             
           
         </ul>
@@ -11008,7 +11008,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../tier4_dummy_object_rviz_plugin/">Tier4 dummy object rviz plugin</a>
+          <a href="../../simulator/tier4_dummy_object_rviz_plugin/">Tier4 dummy object rviz plugin</a>
           
         </div>
       
@@ -14235,44 +14235,23 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#purpose-use-cases" class="md-nav__link">
-    Purpose / Use cases
+  <a href="#purpose" class="md-nav__link">
+    Purpose
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#design" class="md-nav__link">
-    Design
+  <a href="#algorithm" class="md-nav__link">
+    Algorithm
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#assumptions-known-limits" class="md-nav__link">
-    Assumptions / Known limits
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#inputs-outputs-api" class="md-nav__link">
-    Inputs / Outputs / API
-  </a>
-  
-    <nav class="md-nav" aria-label="Inputs / Outputs / API">
+    <nav class="md-nav" aria-label="Algorithm">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#input" class="md-nav__link">
-    input
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#output" class="md-nav__link">
-    output
+  <a href="#inner-algorithm" class="md-nav__link">
+    Inner Algorithm
   </a>
   
 </li>
@@ -14283,78 +14262,43 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#inner-workings-algorithms" class="md-nav__link">
-    Inner-workings / Algorithms
+  <a href="#inputs" class="md-nav__link">
+    Inputs
   </a>
   
-    <nav class="md-nav" aria-label="Inner-workings / Algorithms">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#outputs" class="md-nav__link">
+    Outputs
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#parameters" class="md-nav__link">
+    Parameters
+  </a>
+  
+    <nav class="md-nav" aria-label="Parameters">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#common-parameters" class="md-nav__link">
-    Common Parameters
+  <a href="#node-parameters" class="md-nav__link">
+    Node Parameters
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#vehicle-model-parameters" class="md-nav__link">
-    Vehicle Model Parameters
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#example-of-learned_steer_vel-model" class="md-nav__link">
-    Example of LEARNED_STEER_VEL model
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#default-tf-configuration" class="md-nav__link">
-    Default TF configuration
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#caveat-pitch-calculation" class="md-nav__link">
-    (Caveat) Pitch calculation
+  <a href="#collision-checker-parameters" class="md-nav__link">
+    Collision Checker Parameters
   </a>
   
 </li>
         
       </ul>
     </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#error-detection-and-handling" class="md-nav__link">
-    Error detection and handling
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#security-considerations" class="md-nav__link">
-    Security considerations
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#references-external-links" class="md-nav__link">
-    References / External links
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#future-extensions-unimplemented-parts" class="md-nav__link">
-    Future extensions / Unimplemented parts
-  </a>
   
 </li>
       
@@ -14376,40 +14320,120 @@
   
 
 
-<div><h1 id="simple_planning_simulator">simple_planning_simulator<a class="headerlink" href="#simple_planning_simulator" title="Permanent link">#</a></h1>
-<h2 id="purpose-use-cases">Purpose / Use cases<a class="headerlink" href="#purpose-use-cases" title="Permanent link">#</a></h2>
-<p>This node simulates the vehicle motion for a vehicle command in 2D using a simple vehicle model.</p>
-<h2 id="design">Design<a class="headerlink" href="#design" title="Permanent link">#</a></h2>
-<p>The purpose of this simulator is for the integration test of planning and control modules. This does not simulate sensing or perception, but is implemented in pure c++ only and works without GPU.</p>
-<h2 id="assumptions-known-limits">Assumptions / Known limits<a class="headerlink" href="#assumptions-known-limits" title="Permanent link">#</a></h2>
-<ul>
-<li>It simulates only in 2D motion.</li>
-<li>It does not perform physical operations such as collision and sensing, but only calculates the integral results of vehicle dynamics.</li>
-</ul>
-<h2 id="inputs-outputs-api">Inputs / Outputs / API<a class="headerlink" href="#inputs-outputs-api" title="Permanent link">#</a></h2>
-<h3 id="input">input<a class="headerlink" href="#input" title="Permanent link">#</a></h3>
-<ul>
-<li>input/initialpose [<code>geometry_msgs/msg/PoseWithCovarianceStamped</code>] : for initial pose</li>
-<li>input/ackermann_control_command [<code>autoware_control_msgs/msg/Control</code>] : target command to drive a vehicle</li>
-<li>input/manual_ackermann_control_command [<code>autoware_control_msgs/msg/Control</code>] : manual target command to drive a vehicle (used when control_mode_request = Manual)</li>
-<li>input/gear_command [<code>autoware_vehicle_msgs/msg/GearCommand</code>] : target gear command.</li>
-<li>input/manual_gear_command [<code>autoware_vehicle_msgs/msg/GearCommand</code>] : target gear command (used when control_mode_request = Manual)</li>
-<li>input/turn_indicators_command [<code>autoware_vehicle_msgs/msg/TurnIndicatorsCommand</code>] : target turn indicator command</li>
-<li>input/hazard_lights_command [<code>autoware_vehicle_msgs/msg/HazardLightsCommand</code>] : target hazard lights command</li>
-<li>input/control_mode_request [<code>tier4_vehicle_msgs::srv::ControlModeRequest</code>] : mode change for Auto/Manual driving</li>
-</ul>
-<h3 id="output">output<a class="headerlink" href="#output" title="Permanent link">#</a></h3>
-<ul>
-<li>/tf [<code>tf2_msgs/msg/TFMessage</code>] : simulated vehicle pose (base_link)</li>
-<li>/output/odometry [<code>nav_msgs/msg/Odometry</code>] : simulated vehicle pose and twist</li>
-<li>/output/steering [<code>autoware_vehicle_msgs/msg/SteeringReport</code>] : simulated steering angle</li>
-<li>/output/control_mode_report [<code>autoware_vehicle_msgs/msg/ControlModeReport</code>] : current control mode (Auto/Manual)</li>
-<li>/output/gear_report [<code>autoware_vehicle_msgs/msg/ControlModeReport</code>] : simulated gear</li>
-<li>/output/turn_indicators_report [<code>autoware_vehicle_msgs/msg/ControlModeReport</code>] : simulated turn indicator status</li>
-<li>/output/hazard_lights_report [<code>autoware_vehicle_msgs/msg/ControlModeReport</code>] : simulated hazard lights status</li>
-</ul>
-<h2 id="inner-workings-algorithms">Inner-workings / Algorithms<a class="headerlink" href="#inner-workings-algorithms" title="Permanent link">#</a></h2>
-<h3 id="common-parameters">Common Parameters<a class="headerlink" href="#common-parameters" title="Permanent link">#</a></h3>
+<div><h1 id="predicted-path-checker">Predicted Path Checker<a class="headerlink" href="#predicted-path-checker" title="Permanent link">#</a></h1>
+<h2 id="purpose">Purpose<a class="headerlink" href="#purpose" title="Permanent link">#</a></h2>
+<p>The Predicted Path Checker package is designed for autonomous vehicles to check the predicted path generated by control
+modules. It handles potential collisions that the planning module might not be able to handle and that in the brake
+distance. In case of collision in brake distance, the package will send a diagnostic message labeled "ERROR" to alert
+the system to send emergency and in the case of collisions in outside reference trajectory, it sends pause request to
+pause interface to make the vehicle stop.</p>
+<p><img alt="general-structure.png" src="images/general-structure.png"></p>
+<h2 id="algorithm">Algorithm<a class="headerlink" href="#algorithm" title="Permanent link">#</a></h2>
+<p>The package algorithm evaluates the predicted trajectory against the reference trajectory and the predicted objects in
+the environment. It checks for potential collisions and, if necessary, generates an appropriate response to avoid them (
+emergency or pause request).</p>
+<h3 id="inner-algorithm">Inner Algorithm<a class="headerlink" href="#inner-algorithm" title="Permanent link">#</a></h3>
+<p><img alt="FlowChart.png" src="images/FlowChart.png"></p>
+<p><strong>cutTrajectory() -&gt;</strong> It cuts the predicted trajectory with input length. Length is calculated by multiplying the
+velocity
+of ego vehicle with "trajectory_check_time" parameter and "min_trajectory_length".</p>
+<p><strong>filterObstacles() -&gt;</strong> It filters the predicted objects in the environment. It filters the objects which are not in
+front of the vehicle and far away from predicted trajectory.</p>
+<p><strong>checkTrajectoryForCollision() -&gt;</strong> It checks the predicted trajectory for collision with the predicted objects. It
+calculates both polygon of trajectory points and predicted objects and checks intersection of both polygons. If there is
+an intersection, it calculates the nearest collision point. It returns the nearest collision point of polygon and the
+predicted object. It also checks predicted objects history which are intersect with the footprint before to avoid
+unexpected behaviors. Predicted objects history stores the objects if it was detected below the "chattering_threshold"
+seconds ago.</p>
+<p>If the "enable_z_axis_obstacle_filtering" parameter is set to true, it filters the predicted objects in the Z-axis by
+using "z_axis_filtering_buffer". If the object does not intersect with the Z-axis, it is filtered out.</p>
+<p><img alt="Z_axis_filtering.png" src="images/Z_axis_filtering.png"></p>
+<p><strong>calculateProjectedVelAndAcc() -&gt;</strong> It calculates the projected velocity and acceleration of the predicted object on
+predicted trajectory's collision point's axes.</p>
+<p><strong>isInBrakeDistance() -&gt;</strong> It checks if the stop point is in brake distance. It gets relative velocity and
+acceleration of ego vehicle with respect to the predicted object. It calculates the brake distance, if the point in
+brake distance, it returns true.</p>
+<p><strong>isItDiscretePoint() -&gt;</strong> It checks if the stop point on predicted trajectory is discrete point or not. If it is not
+discrete point, planning should handle the stop.</p>
+<p><strong>isThereStopPointOnRefTrajectory() -&gt;</strong> It checks if there is a stop point on reference trajectory. If there is a stop
+point before the stop index, it returns true. Otherwise, it returns false, and node is going to call pause interface to
+make the vehicle stop.</p>
+<h2 id="inputs">Inputs<a class="headerlink" href="#inputs" title="Permanent link">#</a></h2>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>~/input/reference_trajectory</code></td>
+<td><code>autoware_planning_msgs::msg::Trajectory</code></td>
+<td>Reference trajectory</td>
+</tr>
+<tr>
+<td><code>~/input/predicted_trajectory</code></td>
+<td><code>autoware_planning_msgs::msg::Trajectory</code></td>
+<td>Predicted trajectory</td>
+</tr>
+<tr>
+<td><code>~/input/objects</code></td>
+<td><code>autoware_perception_msgs::msg::PredictedObject</code></td>
+<td>Dynamic objects in the environment</td>
+</tr>
+<tr>
+<td><code>~/input/odometry</code></td>
+<td><code>nav_msgs::msg::Odometry</code></td>
+<td>Odometry message of vehicle to get current velocity</td>
+</tr>
+<tr>
+<td><code>~/input/current_accel</code></td>
+<td><code>geometry_msgs::msg::AccelWithCovarianceStamped</code></td>
+<td>Current acceleration</td>
+</tr>
+<tr>
+<td><code>/control/vehicle_cmd_gate/is_paused</code></td>
+<td><code>tier4_control_msgs::msg::IsPaused</code></td>
+<td>Current pause state of the vehicle</td>
+</tr>
+</tbody>
+</table>
+<h2 id="outputs">Outputs<a class="headerlink" href="#outputs" title="Permanent link">#</a></h2>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>~/debug/marker</code></td>
+<td><code>visualization_msgs::msg::MarkerArray</code></td>
+<td>Marker for visualization</td>
+</tr>
+<tr>
+<td><code>~/debug/virtual_wall</code></td>
+<td><code>visualization_msgs::msg::MarkerArray</code></td>
+<td>Virtual wall marker for visualization</td>
+</tr>
+<tr>
+<td><code>/control/vehicle_cmd_gate/set_pause</code></td>
+<td><code>tier4_control_msgs::srv::SetPause</code></td>
+<td>Pause service to make the vehicle stop</td>
+</tr>
+<tr>
+<td><code>/diagnostics</code></td>
+<td><code>diagnostic_msgs::msg::DiagnosticStatus</code></td>
+<td>Diagnostic status of vehicle</td>
+</tr>
+</tbody>
+</table>
+<h2 id="parameters">Parameters<a class="headerlink" href="#parameters" title="Permanent link">#</a></h2>
+<h3 id="node-parameters">Node Parameters<a class="headerlink" href="#node-parameters" title="Permanent link">#</a></h3>
 <table>
 <thead>
 <tr>
@@ -14421,489 +14445,122 @@
 </thead>
 <tbody>
 <tr>
-<td align="left">simulated_frame_id</td>
-<td align="left">string</td>
-<td align="left">set to the child_frame_id in output tf</td>
-<td align="left">"base_link"</td>
+<td align="left"><code>update_rate</code></td>
+<td align="left"><code>double</code></td>
+<td align="left">The update rate [Hz]</td>
+<td align="left">10.0</td>
 </tr>
 <tr>
-<td align="left">origin_frame_id</td>
-<td align="left">string</td>
-<td align="left">set to the frame_id in output tf</td>
-<td align="left">"odom"</td>
+<td align="left"><code>delay_time</code></td>
+<td align="left"><code>double</code></td>
+<td align="left">he time delay considered for the emergency response [s]</td>
+<td align="left">0.17</td>
 </tr>
 <tr>
-<td align="left">initialize_source</td>
-<td align="left">string</td>
-<td align="left">If "ORIGIN", the initial pose is set at (0,0,0). If "INITIAL_POSE_TOPIC", node will wait until the <code>input/initialpose</code> topic is published.</td>
-<td align="left">"INITIAL_POSE_TOPIC"</td>
+<td align="left"><code>max_deceleration</code></td>
+<td align="left"><code>double</code></td>
+<td align="left">Max deceleration for ego vehicle to stop [m/s^2]</td>
+<td align="left">1.5</td>
 </tr>
 <tr>
-<td align="left">add_measurement_noise</td>
-<td align="left">bool</td>
-<td align="left">If true, the Gaussian noise is added to the simulated results.</td>
+<td align="left"><code>resample_interval</code></td>
+<td align="left"><code>double</code></td>
+<td align="left">Interval for resampling trajectory [m]</td>
+<td align="left">0.5</td>
+</tr>
+<tr>
+<td align="left"><code>stop_margin</code></td>
+<td align="left"><code>double</code></td>
+<td align="left">The stopping margin [m]</td>
+<td align="left">0.5</td>
+</tr>
+<tr>
+<td align="left"><code>ego_nearest_dist_threshold</code></td>
+<td align="left"><code>double</code></td>
+<td align="left">The nearest distance threshold for ego vehicle [m]</td>
+<td align="left">3.0</td>
+</tr>
+<tr>
+<td align="left"><code>ego_nearest_yaw_threshold</code></td>
+<td align="left"><code>double</code></td>
+<td align="left">The nearest yaw threshold for ego vehicle [rad]</td>
+<td align="left">1.046</td>
+</tr>
+<tr>
+<td align="left"><code>min_trajectory_check_length</code></td>
+<td align="left"><code>double</code></td>
+<td align="left">The minimum trajectory check length in meters [m]</td>
+<td align="left">1.5</td>
+</tr>
+<tr>
+<td align="left"><code>trajectory_check_time</code></td>
+<td align="left"><code>double</code></td>
+<td align="left">The trajectory check time in seconds. [s]</td>
+<td align="left">3.0</td>
+</tr>
+<tr>
+<td align="left"><code>distinct_point_distance_threshold</code></td>
+<td align="left"><code>double</code></td>
+<td align="left">The distinct point distance threshold [m]</td>
+<td align="left">0.3</td>
+</tr>
+<tr>
+<td align="left"><code>distinct_point_yaw_threshold</code></td>
+<td align="left"><code>double</code></td>
+<td align="left">The distinct point yaw threshold [deg]</td>
+<td align="left">5.0</td>
+</tr>
+<tr>
+<td align="left"><code>filtering_distance_threshold</code></td>
+<td align="left"><code>double</code></td>
+<td align="left">It ignores the objects if distance is higher than this [m]</td>
+<td align="left">1.5</td>
+</tr>
+<tr>
+<td align="left"><code>use_object_prediction</code></td>
+<td align="left"><code>bool</code></td>
+<td align="left">If true, node predicts current pose of the objects wrt delta time [-]</td>
 <td align="left">true</td>
 </tr>
-<tr>
-<td align="left">pos_noise_stddev</td>
-<td align="left">double</td>
-<td align="left">Standard deviation for position noise</td>
-<td align="left">0.01</td>
-</tr>
-<tr>
-<td align="left">rpy_noise_stddev</td>
-<td align="left">double</td>
-<td align="left">Standard deviation for Euler angle noise</td>
-<td align="left">0.0001</td>
-</tr>
-<tr>
-<td align="left">vel_noise_stddev</td>
-<td align="left">double</td>
-<td align="left">Standard deviation for longitudinal velocity noise</td>
-<td align="left">0.0</td>
-</tr>
-<tr>
-<td align="left">angvel_noise_stddev</td>
-<td align="left">double</td>
-<td align="left">Standard deviation for angular velocity noise</td>
-<td align="left">0.0</td>
-</tr>
-<tr>
-<td align="left">steer_noise_stddev</td>
-<td align="left">double</td>
-<td align="left">Standard deviation for steering angle noise</td>
-<td align="left">0.0001</td>
-</tr>
 </tbody>
 </table>
-<h3 id="vehicle-model-parameters">Vehicle Model Parameters<a class="headerlink" href="#vehicle-model-parameters" title="Permanent link">#</a></h3>
-<h4 id="vehicle_model_type-options">vehicle_model_type options<a class="headerlink" href="#vehicle_model_type-options" title="Permanent link">#</a></h4>
-<ul>
-<li><code>IDEAL_STEER_VEL</code></li>
-<li><code>IDEAL_STEER_ACC</code></li>
-<li><code>IDEAL_STEER_ACC_GEARED</code></li>
-<li><code>DELAY_STEER_VEL</code></li>
-<li><code>DELAY_STEER_ACC</code></li>
-<li><code>DELAY_STEER_ACC_GEARED</code></li>
-<li><code>DELAY_STEER_ACC_GEARED_WO_FALL_GUARD</code></li>
-<li><code>DELAY_STEER_MAP_ACC_GEARED</code>: applies 1D dynamics and time delay to the steering and acceleration commands. The simulated acceleration is determined by a value converted through the provided acceleration map. This model is valuable for an accurate simulation with acceleration deviations in a real vehicle.</li>
-<li><code>LEARNED_STEER_VEL</code>: launches learned python models. More about this <a href="../learning_based_vehicle_model">here</a>.</li>
-</ul>
-<p>The following models receive <code>ACTUATION_CMD</code> generated from <code>raw_vehicle_cmd_converter</code>. Therefore, when these models are selected, the <code>raw_vehicle_cmd_converter</code> is also launched.</p>
-<ul>
-<li><code>ACTUATION_CMD</code>: This model only converts accel/brake commands and use steer command as it is.</li>
-<li><code>ACTUATION_CMD_STEER_MAP</code>: The steer command is converted to the steer rate command using the steer map.</li>
-<li><code>ACTUATION_CMD_VGR</code>: The steer command is converted to the steer rate command using the variable gear ratio.</li>
-<li><code>ACTUATION_CMD_MECHANICAL</code>: This model has mechanical dynamics and controller for that.</li>
-</ul>
-<p>The <code>IDEAL</code> model moves ideally as commanded, while the <code>DELAY</code> model moves based on a 1st-order with time delay model. The <code>STEER</code> means the model receives the steer command. The <code>VEL</code> means the model receives the target velocity command, while the <code>ACC</code> model receives the target acceleration command. The <code>GEARED</code> suffix means that the motion will consider the gear command: the vehicle moves only one direction following the gear.</p>
-<p>The table below shows which models correspond to what parameters. The model names are written in abbreviated form (e.g. IDEAL_STEER_VEL = I_ST_V).</p>
+<h3 id="collision-checker-parameters">Collision Checker Parameters<a class="headerlink" href="#collision-checker-parameters" title="Permanent link">#</a></h3>
 <table>
 <thead>
 <tr>
 <th align="left">Name</th>
 <th align="left">Type</th>
 <th align="left">Description</th>
-<th align="left">I_ST_V</th>
-<th align="left">I_ST_A</th>
-<th align="left">I_ST_A_G</th>
-<th align="left">D_ST_V</th>
-<th align="left">D_ST_A</th>
-<th align="left">D_ST_A_G</th>
-<th align="left">D_ST_A_G_WO_FG</th>
-<th align="left">D_ST_M_ACC_G</th>
-<th align="left">L_S_V</th>
-<th align="left">A_C</th>
 <th align="left">Default value</th>
-<th align="left">unit</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="left">acc_time_delay</td>
-<td align="left">double</td>
-<td align="left">dead time for the acceleration input</td>
-<td align="left">x</td>
-<td align="left">x</td>
-<td align="left">x</td>
-<td align="left">x</td>
-<td align="left">o</td>
-<td align="left">o</td>
-<td align="left">o</td>
-<td align="left">o</td>
-<td align="left">x</td>
-<td align="left">x</td>
-<td align="left">0.1</td>
-<td align="left">[s]</td>
+<td align="left"><code>width_margin</code></td>
+<td align="left"><code>double</code></td>
+<td align="left">The width margin for collision checking [Hz]</td>
+<td align="left">0.2</td>
 </tr>
 <tr>
-<td align="left">steer_time_delay</td>
-<td align="left">double</td>
-<td align="left">dead time for the steering input</td>
-<td align="left">x</td>
-<td align="left">x</td>
-<td align="left">x</td>
-<td align="left">o</td>
-<td align="left">o</td>
-<td align="left">o</td>
-<td align="left">o</td>
-<td align="left">o</td>
-<td align="left">x</td>
-<td align="left">o</td>
-<td align="left">0.24</td>
-<td align="left">[s]</td>
+<td align="left"><code>chattering_threshold</code></td>
+<td align="left"><code>double</code></td>
+<td align="left">The chattering threshold for collision detection [s]</td>
+<td align="left">0.2</td>
 </tr>
 <tr>
-<td align="left">vel_time_delay</td>
-<td align="left">double</td>
-<td align="left">dead time for the velocity input</td>
-<td align="left">x</td>
-<td align="left">x</td>
-<td align="left">x</td>
-<td align="left">o</td>
-<td align="left">x</td>
-<td align="left">x</td>
-<td align="left">x</td>
-<td align="left">x</td>
-<td align="left">x</td>
-<td align="left">x</td>
-<td align="left">0.25</td>
-<td align="left">[s]</td>
+<td align="left"><code>z_axis_filtering_buffer</code></td>
+<td align="left"><code>double</code></td>
+<td align="left">The Z-axis filtering buffer [m]</td>
+<td align="left">0.3</td>
 </tr>
 <tr>
-<td align="left">acc_time_constant</td>
-<td align="left">double</td>
-<td align="left">time constant of the 1st-order acceleration dynamics</td>
-<td align="left">x</td>
-<td align="left">x</td>
-<td align="left">x</td>
-<td align="left">x</td>
-<td align="left">o</td>
-<td align="left">o</td>
-<td align="left">o</td>
-<td align="left">o</td>
-<td align="left">x</td>
-<td align="left">x</td>
-<td align="left">0.1</td>
-<td align="left">[s]</td>
-</tr>
-<tr>
-<td align="left">steer_time_constant</td>
-<td align="left">double</td>
-<td align="left">time constant of the 1st-order steering dynamics</td>
-<td align="left">x</td>
-<td align="left">x</td>
-<td align="left">x</td>
-<td align="left">o</td>
-<td align="left">o</td>
-<td align="left">o</td>
-<td align="left">o</td>
-<td align="left">o</td>
-<td align="left">x</td>
-<td align="left">o</td>
-<td align="left">0.27</td>
-<td align="left">[s]</td>
-</tr>
-<tr>
-<td align="left">steer_dead_band</td>
-<td align="left">double</td>
-<td align="left">dead band for steering angle</td>
-<td align="left">x</td>
-<td align="left">x</td>
-<td align="left">x</td>
-<td align="left">o</td>
-<td align="left">o</td>
-<td align="left">o</td>
-<td align="left">o</td>
-<td align="left">x</td>
-<td align="left">x</td>
-<td align="left">o</td>
-<td align="left">0.0</td>
-<td align="left">[rad]</td>
-</tr>
-<tr>
-<td align="left">vel_time_constant</td>
-<td align="left">double</td>
-<td align="left">time constant of the 1st-order velocity dynamics</td>
-<td align="left">x</td>
-<td align="left">x</td>
-<td align="left">x</td>
-<td align="left">o</td>
-<td align="left">x</td>
-<td align="left">x</td>
-<td align="left">x</td>
-<td align="left">x</td>
-<td align="left">x</td>
-<td align="left">x</td>
-<td align="left">0.5</td>
-<td align="left">[s]</td>
-</tr>
-<tr>
-<td align="left">vel_lim</td>
-<td align="left">double</td>
-<td align="left">limit of velocity</td>
-<td align="left">x</td>
-<td align="left">x</td>
-<td align="left">x</td>
-<td align="left">o</td>
-<td align="left">o</td>
-<td align="left">o</td>
-<td align="left">o</td>
-<td align="left">o</td>
-<td align="left">x</td>
-<td align="left">x</td>
-<td align="left">50.0</td>
-<td align="left">[m/s]</td>
-</tr>
-<tr>
-<td align="left">vel_rate_lim</td>
-<td align="left">double</td>
-<td align="left">limit of acceleration</td>
-<td align="left">x</td>
-<td align="left">x</td>
-<td align="left">x</td>
-<td align="left">o</td>
-<td align="left">o</td>
-<td align="left">o</td>
-<td align="left">o</td>
-<td align="left">o</td>
-<td align="left">x</td>
-<td align="left">x</td>
-<td align="left">7.0</td>
-<td align="left">[m/ss]</td>
-</tr>
-<tr>
-<td align="left">steer_lim</td>
-<td align="left">double</td>
-<td align="left">limit of steering angle</td>
-<td align="left">x</td>
-<td align="left">x</td>
-<td align="left">x</td>
-<td align="left">o</td>
-<td align="left">o</td>
-<td align="left">o</td>
-<td align="left">o</td>
-<td align="left">o</td>
-<td align="left">x</td>
-<td align="left">o</td>
-<td align="left">1.0</td>
-<td align="left">[rad]</td>
-</tr>
-<tr>
-<td align="left">steer_rate_lim</td>
-<td align="left">double</td>
-<td align="left">limit of steering angle change rate</td>
-<td align="left">x</td>
-<td align="left">x</td>
-<td align="left">x</td>
-<td align="left">o</td>
-<td align="left">o</td>
-<td align="left">o</td>
-<td align="left">o</td>
-<td align="left">o</td>
-<td align="left">x</td>
-<td align="left">o</td>
-<td align="left">5.0</td>
-<td align="left">[rad/s]</td>
-</tr>
-<tr>
-<td align="left">steer_bias</td>
-<td align="left">double</td>
-<td align="left">bias for steering angle</td>
-<td align="left">x</td>
-<td align="left">x</td>
-<td align="left">x</td>
-<td align="left">o</td>
-<td align="left">o</td>
-<td align="left">o</td>
-<td align="left">o</td>
-<td align="left">o</td>
-<td align="left">x</td>
-<td align="left">o</td>
-<td align="left">0.0</td>
-<td align="left">[rad]</td>
-</tr>
-<tr>
-<td align="left">debug_acc_scaling_factor</td>
-<td align="left">double</td>
-<td align="left">scaling factor for accel command</td>
-<td align="left">x</td>
-<td align="left">x</td>
-<td align="left">x</td>
-<td align="left">x</td>
-<td align="left">o</td>
-<td align="left">o</td>
-<td align="left">o</td>
-<td align="left">x</td>
-<td align="left">x</td>
-<td align="left">x</td>
-<td align="left">1.0</td>
-<td align="left">[-]</td>
-</tr>
-<tr>
-<td align="left">debug_steer_scaling_factor</td>
-<td align="left">double</td>
-<td align="left">scaling factor for steer command</td>
-<td align="left">x</td>
-<td align="left">x</td>
-<td align="left">x</td>
-<td align="left">x</td>
-<td align="left">o</td>
-<td align="left">o</td>
-<td align="left">o</td>
-<td align="left">x</td>
-<td align="left">x</td>
-<td align="left">x</td>
-<td align="left">1.0</td>
-<td align="left">[-]</td>
-</tr>
-<tr>
-<td align="left">acceleration_map_path</td>
-<td align="left">string</td>
-<td align="left">path to csv file for acceleration map which converts velocity and ideal acceleration to actual acceleration</td>
-<td align="left">x</td>
-<td align="left">x</td>
-<td align="left">x</td>
-<td align="left">x</td>
-<td align="left">x</td>
-<td align="left">x</td>
-<td align="left">x</td>
-<td align="left">o</td>
-<td align="left">x</td>
-<td align="left">x</td>
-<td align="left">-</td>
-<td align="left">[-]</td>
-</tr>
-<tr>
-<td align="left">model_module_paths</td>
-<td align="left">string</td>
-<td align="left">path to a python module where the model is implemented</td>
-<td align="left">x</td>
-<td align="left">x</td>
-<td align="left">x</td>
-<td align="left">x</td>
-<td align="left">x</td>
-<td align="left">x</td>
-<td align="left">x</td>
-<td align="left">x</td>
-<td align="left">o</td>
-<td align="left">x</td>
-<td align="left">-</td>
-<td align="left">[-]</td>
-</tr>
-<tr>
-<td align="left">model_param_paths</td>
-<td align="left">string</td>
-<td align="left">path to the file where model parameters are stored (can be empty string if no parameter file is required)</td>
-<td align="left">x</td>
-<td align="left">x</td>
-<td align="left">x</td>
-<td align="left">x</td>
-<td align="left">x</td>
-<td align="left">x</td>
-<td align="left">x</td>
-<td align="left">x</td>
-<td align="left">o</td>
-<td align="left">x</td>
-<td align="left">-</td>
-<td align="left">[-]</td>
-</tr>
-<tr>
-<td align="left">model_class_names</td>
-<td align="left">string</td>
-<td align="left">name of the class that implements the model</td>
-<td align="left">x</td>
-<td align="left">x</td>
-<td align="left">x</td>
-<td align="left">x</td>
-<td align="left">x</td>
-<td align="left">x</td>
-<td align="left">x</td>
-<td align="left">x</td>
-<td align="left">o</td>
-<td align="left">x</td>
-<td align="left">-</td>
-<td align="left">[-]</td>
+<td align="left"><code>enable_z_axis_obstacle_filtering</code></td>
+<td align="left"><code>bool</code></td>
+<td align="left">A boolean flag indicating if Z-axis obstacle filtering is enabled</td>
+<td align="left">false</td>
 </tr>
 </tbody>
-</table>
-<p><em>Note:</em> Parameters <code>model_module_paths</code>, <code>model_param_paths</code>, and <code>model_class_names</code> need to have the same length.</p>
-<p>The <code>acceleration_map</code> is used only for <code>DELAY_STEER_MAP_ACC_GEARED</code> and it shows the acceleration command on the vertical axis and the current velocity on the horizontal axis, with each cell representing the converted acceleration command that is actually used in the simulator's motion calculation. Values in between are linearly interpolated.</p>
-<p>Example of <code>acceleration_map.csv</code></p>
-<div class="highlight"><pre><span></span><code>default,  0.00,  1.39,  2.78,  4.17,  5.56,  6.94,  8.33,  9.72, 11.11, 12.50, 13.89, 15.28, 16.67
--4.0,    -4.40, -4.36, -4.38, -4.12, -4.20, -3.94, -3.98, -3.80, -3.77, -3.76, -3.59, -3.50, -3.40
--3.5,    -4.00, -3.91, -3.85, -3.64, -3.68, -3.55, -3.42, -3.24, -3.25, -3.00, -3.04, -2.93, -2.80
--3.0,    -3.40, -3.37, -3.33, -3.00, -3.00, -2.90, -2.88, -2.65, -2.43, -2.44, -2.43, -2.39, -2.30
--2.5,    -2.80, -2.72, -2.72, -2.62, -2.41, -2.43, -2.26, -2.18, -2.11, -2.03, -1.96, -1.91, -1.85
--2.0,    -2.30, -2.24, -2.12, -2.02, -1.92, -1.81, -1.67, -1.58, -1.51, -1.49, -1.40, -1.35, -1.30
--1.5,    -1.70, -1.61, -1.47, -1.46, -1.40, -1.37, -1.29, -1.24, -1.10, -0.99, -0.83, -0.80, -0.78
--1.0,    -1.30, -1.28, -1.10, -1.09, -1.04, -1.02, -0.98, -0.89, -0.82, -0.61, -0.52, -0.54, -0.56
--0.8,    -0.96, -0.90, -0.82, -0.74, -0.70, -0.65, -0.63, -0.59, -0.55, -0.44, -0.39, -0.39, -0.35
--0.6,    -0.77, -0.71, -0.67, -0.65, -0.58, -0.52, -0.51, -0.50, -0.40, -0.33, -0.30, -0.31, -0.30
--0.4,    -0.45, -0.40, -0.45, -0.44, -0.38, -0.35, -0.31, -0.30, -0.26, -0.30, -0.29, -0.31, -0.25
--0.2,    -0.24, -0.24, -0.25, -0.22, -0.23, -0.25, -0.27, -0.29, -0.24, -0.22, -0.17, -0.18, -0.12
- 0.0,     0.00,  0.00, -0.05, -0.05, -0.05, -0.05, -0.08, -0.08, -0.08, -0.08, -0.10, -0.10, -0.10
- 0.2,     0.16,  0.12,  0.02,  0.02,  0.00,  0.00, -0.05, -0.05, -0.05, -0.05, -0.08, -0.08, -0.08
- 0.4,     0.38,  0.30,  0.22,  0.25,  0.24,  0.23,  0.20,  0.16,  0.16,  0.14,  0.10,  0.05,  0.05
- 0.6,     0.52,  0.52,  0.51,  0.49,  0.43,  0.40,  0.35,  0.33,  0.33,  0.33,  0.32,  0.34,  0.34
- 0.8,     0.82,  0.81,  0.78,  0.68,  0.63,  0.56,  0.53,  0.48,  0.43,  0.41,  0.37,  0.38,  0.40
- 1.0,     1.00,  1.08,  1.01,  0.88,  0.76,  0.69,  0.66,  0.58,  0.54,  0.49,  0.45,  0.40,  0.40
- 1.5,     1.52,  1.50,  1.38,  1.26,  1.14,  1.03,  0.91,  0.82,  0.67,  0.61,  0.51,  0.41,  0.41
- 2.0,     1.80,  1.80,  1.64,  1.43,  1.25,  1.11,  0.96,  0.81,  0.70,  0.59,  0.51,  0.42,  0.42
-</code></pre></div>
-<p><img alt="acceleration_map" src="media/acceleration_map.svg"></p>
-<h5 id="actuation_cmd-model">ACTUATION_CMD model<a class="headerlink" href="#actuation_cmd-model" title="Permanent link">#</a></h5>
-<p>The simple_planning_simulator usually operates by receiving Control commands, but when the <code>ACTUATION_CMD*</code> model is selected, it receives Actuation commands instead of Control commands. This model can simulate the motion using the vehicle command that is actually sent to the real vehicle. Therefore, when this model is selected, the <code>raw_vehicle_cmd_converter</code> is also launched.
-Please refer to the <a href="docs/actuation_cmd_sim/">actuation_cmd_sim.md</a> for more details.</p>
-<!-- deadzone_delta_steer | double | dead zone for the steering dynamics                  | x      | x      | x        | o      | o      | 0.0      | [rad]         |         | -->
-
-<p><em>Note</em>: The steering/velocity/acceleration dynamics is modeled by a first order system with a deadtime in a <em>delay</em> model. The definition of the <em>time constant</em> is the time it takes for the step response to rise up to 63% of its final value. The <em>deadtime</em> is a delay in the response to a control input.</p>
-<h3 id="example-of-learned_steer_vel-model">Example of LEARNED_STEER_VEL model<a class="headerlink" href="#example-of-learned_steer_vel-model" title="Permanent link">#</a></h3>
-<p>We created a few basic models to showcase how <code>LEARNED_STEER_VEL</code> works.</p>
-<ol>
-<li>
-<p>Install <a href="https://github.com/atomyks/control_analysis_pipeline/tree/v0.1_autoware">a library</a> that contains basic Python models. (branch: <code>v0.1_autoware</code>)</p>
-</li>
-<li>
-<p>In a file <code>src/vehicle/sample_vehicle_launch/sample_vehicle_description/config/simulator_model.param.yaml</code> set <code>vehicle_model_type</code> to <code>LEARNED_STEER_VEL</code>. In the same file set the following parameters. These models are for testing and do not require any parameter file.</p>
-</li>
-</ol>
-<div class="highlight"><pre><span></span><code><span class="nt">model_module_paths</span><span class="p">:</span>
-<span class="w">  </span><span class="p p-Indicator">[</span>
-<span class="w">    </span><span class="s">"control_analysis_pipeline.autoware_models.vehicle.kinematic"</span><span class="p p-Indicator">,</span>
-<span class="w">    </span><span class="s">"control_analysis_pipeline.autoware_models.steering.steer_example"</span><span class="p p-Indicator">,</span>
-<span class="w">    </span><span class="s">"control_analysis_pipeline.autoware_models.drive.drive_example"</span><span class="p p-Indicator">,</span>
-<span class="w">  </span><span class="p p-Indicator">]</span>
-<span class="nt">model_param_paths</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">""</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">""</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">""</span><span class="p p-Indicator">]</span>
-<span class="nt">model_class_names</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">"KinematicModel"</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">"SteerExample"</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">"DriveExample"</span><span class="p p-Indicator">]</span>
-</code></pre></div>
-<h3 id="default-tf-configuration">Default TF configuration<a class="headerlink" href="#default-tf-configuration" title="Permanent link">#</a></h3>
-<p>Since the vehicle outputs <code>odom</code>-&gt;<code>base_link</code> tf, this simulator outputs the tf with the same frame_id configuration.
-In the simple_planning_simulator.launch.py, the node that outputs the <code>map</code>-&gt;<code>odom</code> tf, that usually estimated by the localization module (e.g. NDT), will be launched as well. Since the tf output by this simulator module is an ideal value, <code>odom</code>-&gt;<code>map</code> will always be 0.</p>
-<h3 id="caveat-pitch-calculation">(Caveat) Pitch calculation<a class="headerlink" href="#caveat-pitch-calculation" title="Permanent link">#</a></h3>
-<p>Ego vehicle pitch angle is calculated in the following manner.</p>
-<p><img alt="pitch calculation" src="media/pitch-calculation.drawio.svg"></p>
-<p>NOTE: driving against the line direction (as depicted in image's bottom row) is not supported and only shown for illustration purposes.</p>
-<h2 id="error-detection-and-handling">Error detection and handling<a class="headerlink" href="#error-detection-and-handling" title="Permanent link">#</a></h2>
-<p>The only validation on inputs being done is testing for a valid vehicle model type.</p>
-<h2 id="security-considerations">Security considerations<a class="headerlink" href="#security-considerations" title="Permanent link">#</a></h2>
-<!-- Required -->
-<!-- Things to consider:
-- Spoofing (How do you check for and handle fake input?)
-- Tampering (How do you check for and handle tampered input?)
-- Repudiation (How are you affected by the actions of external actors?).
-- Information Disclosure (Can data leak?).
-- Denial of Service (How do you handle spamming?).
-- Elevation of Privilege (Do you need to change permission levels during execution?) -->
-
-<h2 id="references-external-links">References / External links<a class="headerlink" href="#references-external-links" title="Permanent link">#</a></h2>
-<p>This is originally developed in the Autoware.AI. See the link below.</p>
-<p><a href="https://github.com/Autoware-AI/simulation/tree/master/wf_simulator">https://github.com/Autoware-AI/simulation/tree/master/wf_simulator</a></p>
-<h2 id="future-extensions-unimplemented-parts">Future extensions / Unimplemented parts<a class="headerlink" href="#future-extensions-unimplemented-parts" title="Permanent link">#</a></h2>
-<ul>
-<li>Improving the accuracy of vehicle models (e.g., adding steering dead zones and slip behavior)</li>
-<li>Cooperation with modules that output pseudo pointcloud or pseudo perception results</li>
-</ul></div>
+</table></div>
 
 
 
@@ -14930,7 +14587,7 @@ In the simple_planning_simulator.launch.py, the node that outputs the <code>map<
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../learning_based_vehicle_model/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Learned Model" rel="prev">
+          <a href="../autoware_pid_longitudinal_controller/" class="md-footer__link md-footer__link--prev" aria-label="Previous: PID Longitudinal Controller" rel="prev">
             <div class="md-footer__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
             </div>
@@ -14939,20 +14596,20 @@ In the simple_planning_simulator.launch.py, the node that outputs the <code>map<
                 Previous
               </span>
               <div class="md-ellipsis">
-                Learned Model
+                PID Longitudinal Controller
               </div>
             </div>
           </a>
         
         
           
-          <a href="docs/actuation_cmd_sim/" class="md-footer__link md-footer__link--next" aria-label="Next: ACTUATION_CMD model" rel="next">
+          <a href="../autoware_pure_pursuit/" class="md-footer__link md-footer__link--next" aria-label="Next: Pure Pursuit Controller" rel="next">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                ACTUATION_CMD model
+                Pure Pursuit Controller
               </div>
             </div>
             <div class="md-footer__button md-icon">

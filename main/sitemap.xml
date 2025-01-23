@@ -221,6 +221,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://autowarefoundation.github.io/autoware.universe/main/control/autoware_predicted_path_checker/</loc>
+         <lastmod>2025-01-23</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://autowarefoundation.github.io/autoware.universe/main/control/autoware_pure_pursuit/</loc>
          <lastmod>2025-01-23</lastmod>
          <changefreq>daily</changefreq>
@@ -261,11 +266,6 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/main/control/predicted_path_checker/</loc>
-         <lastmod>2025-01-23</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://autowarefoundation.github.io/autoware.universe/main/evaluator/autoware_control_evaluator/</loc>
          <lastmod>2025-01-23</lastmod>
          <changefreq>daily</changefreq>
@@ -286,12 +286,12 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/main/evaluator/kinematic_evaluator/</loc>
+         <loc>https://autowarefoundation.github.io/autoware.universe/main/evaluator/autoware_scenario_simulator_v2_adapter/</loc>
          <lastmod>2025-01-23</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/main/evaluator/scenario_simulator_v2_adapter/</loc>
+         <loc>https://autowarefoundation.github.io/autoware.universe/main/evaluator/kinematic_evaluator/</loc>
          <lastmod>2025-01-23</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -1276,6 +1276,16 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://autowarefoundation.github.io/autoware.universe/main/simulator/autoware_simple_planning_simulator/</loc>
+         <lastmod>2025-01-23</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware.universe/main/simulator/autoware_simple_planning_simulator/docs/actuation_cmd_sim/</loc>
+         <lastmod>2025-01-23</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://autowarefoundation.github.io/autoware.universe/main/simulator/autoware_vehicle_door_simulator/</loc>
          <lastmod>2025-01-23</lastmod>
          <changefreq>daily</changefreq>
@@ -1287,16 +1297,6 @@
     </url>
     <url>
          <loc>https://autowarefoundation.github.io/autoware.universe/main/simulator/learning_based_vehicle_model/</loc>
-         <lastmod>2025-01-23</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/main/simulator/simple_planning_simulator/</loc>
-         <lastmod>2025-01-23</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/main/simulator/simple_planning_simulator/docs/actuation_cmd_sim/</loc>
          <lastmod>2025-01-23</lastmod>
          <changefreq>daily</changefreq>
     </url>
