@@ -1271,12 +1271,17 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/main/simulator/dummy_perception_publisher/</loc>
+         <loc>https://autowarefoundation.github.io/autoware.universe/main/simulator/autoware_fault_injection/</loc>
          <lastmod>2025-01-23</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/main/simulator/fault_injection/</loc>
+         <loc>https://autowarefoundation.github.io/autoware.universe/main/simulator/autoware_vehicle_door_simulator/</loc>
+         <lastmod>2025-01-23</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware.universe/main/simulator/dummy_perception_publisher/</loc>
          <lastmod>2025-01-23</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -1297,11 +1302,6 @@
     </url>
     <url>
          <loc>https://autowarefoundation.github.io/autoware.universe/main/simulator/tier4_dummy_object_rviz_plugin/</loc>
-         <lastmod>2025-01-23</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/main/simulator/vehicle_door_simulator/</loc>
          <lastmod>2025-01-23</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -1356,7 +1356,22 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://autowarefoundation.github.io/autoware.universe/main/system/autoware_default_adapi_helpers/autoware_adapi_adaptors/</loc>
+         <lastmod>2025-01-23</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware.universe/main/system/autoware_default_adapi_helpers/autoware_automatic_pose_initializer/</loc>
+         <lastmod>2025-01-23</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://autowarefoundation.github.io/autoware.universe/main/system/autoware_dummy_diag_publisher/</loc>
+         <lastmod>2025-01-23</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware.universe/main/system/autoware_dummy_infrastructure/</loc>
          <lastmod>2025-01-23</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -1377,16 +1392,6 @@
     </url>
     <url>
          <loc>https://autowarefoundation.github.io/autoware.universe/main/system/component_state_monitor/</loc>
-         <lastmod>2025-01-23</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/main/system/default_ad_api_helpers/ad_api_adaptors/</loc>
-         <lastmod>2025-01-23</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/main/system/default_ad_api_helpers/automatic_pose_initializer/</loc>
          <lastmod>2025-01-23</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -1467,11 +1472,6 @@
     </url>
     <url>
          <loc>https://autowarefoundation.github.io/autoware.universe/main/system/diagnostic_graph_utils/doc/node/dump/</loc>
-         <lastmod>2025-01-23</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/main/system/dummy_infrastructure/</loc>
          <lastmod>2025-01-23</lastmod>
          <changefreq>daily</changefreq>
     </url>
