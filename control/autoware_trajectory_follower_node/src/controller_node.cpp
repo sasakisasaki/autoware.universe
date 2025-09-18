@@ -21,12 +21,32 @@
 
 #include <autoware/trajectory_follower_base/lateral_controller_base.hpp>
 
+
+#include "autoware/mpc_lateral_controller/mpc_utils.hpp"
+
+
+#include "autoware/interpolation/linear_interpolation.hpp"
+#include "autoware/motion_utils/trajectory/trajectory.hpp"
+
+#include <autoware_utils_geometry/geometry.hpp>
+
 #include <algorithm>
 #include <limits>
 #include <memory>
 #include <string>
 #include <utility>
 #include <vector>
+#include <cmath>
+
+
+
+namespace {
+// Truncate to 3 decimals, e.g. 0.328978 -> 0.328  (toward zero)
+inline double truncate3(double x) {
+  constexpr double scale = 1000.0;
+  return std::trunc(x * scale) / scale;
+}
+}
 
 namespace
 {
@@ -50,6 +70,9 @@ std::vector<T> resampleHorizonByZeroOrderHold(
 
 namespace autoware::motion::control::trajectory_follower_node
 {
+
+namespace mpc = autoware::motion::control::mpc_lateral_controller;
+
 Controller::Controller(const rclcpp::NodeOptions & node_options) : Node("controller", node_options)
 {
   using std::placeholders::_1;
@@ -245,7 +268,38 @@ void Controller::callbackTimerControl()
   if (isTimeOut(lon_out, lat_out)) return;
 
   // 5. publish control command
+
+  // IF IT IS NOT A STRAIGHT LINE (curve, lane change, from static)
+
+
+    //IF IT IS A STRAIGHT LINE 
+  //APPLY CONTROL LOGIC
+
+
+
+//   // calculate curvature
+// MPCUtils::calcTrajectoryCurvature(
+//     param.curvature_smoothing_num_traj, param.curvature_smoothing_num_ref_steer, mpc_traj_smoothed);
+auto the_mpc_traj = mpc::MPCUtils::convertToMPCTrajectory(*current_trajectory_ptr_);
+auto the_curve = mpc::MPCUtils::calcTrajectoryCurvature(15, the_mpc_traj);
+
+//RCLCPP_INFO (get_logger(), "HOKINAWA HOKINAWA HOKINAWA %f . ", out.lateral.steering_tire_angle );
+RCLCPP_INFO (get_logger(), "HOKINAWA HOKINAWA HOKINAWA %f and %f and %f", truncate3(the_curve[0]), truncate3(the_curve[1]), truncate3(the_curve[2]));
+
+if (std::abs(truncate3(the_curve[0])) > 0.000){
+
+  RCLCPP_INFO (get_logger(), "DISABLE THE REGIME REGIME REGIME. ");
   out.lateral = lat_out.control_cmd;
+
+}else {
+
+  //we need to add the error threshold check 
+  
+  out.lateral = 0.2*lat_out.control_cmd;
+}
+
+
+
   out.longitudinal = lon_out.control_cmd;
   control_cmd_pub_->publish(out);
 
@@ -279,7 +333,7 @@ void Controller::publishDebugMarker(
 
     std::stringstream ss;
     const double current = input_data.current_steering.steering_tire_angle;
-    const double cmd = lat_out.control_cmd.steering_tire_angle;
+    double cmd = lat_out.control_cmd.steering_tire_angle;
     const double diff = current - cmd;
     ss << "current:" << current << " cmd:" << cmd << " diff:" << diff
        << (lat_out.sync_data.is_steer_converged ? " (converged)" : " (not converged)");

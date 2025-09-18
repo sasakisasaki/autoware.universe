@@ -33,6 +33,15 @@
 #include <string>
 #include <utility>
 #include <vector>
+#include <cmath>
+
+namespace {
+// Truncate to 3 decimals, e.g. 0.328978 -> 0.328  (toward zero)
+inline double truncate3(double x) {
+  constexpr double scale = 1000.0;
+  return std::trunc(x * scale) / scale;
+}
+}
 
 namespace autoware::motion::control::mpc_lateral_controller
 {
@@ -71,6 +80,10 @@ MpcLateralController::MpcLateralController(
   pid_kd_ = dp_double("k_d");
   pid_int_min_ = dp_double("int_min");
   pid_int_max_ = dp_double("int_max");
+  error_tresh = dp_double("error_tresh");
+
+  steer_counter = dp_double("steer_counter");
+
 
   /* stop state parameters */
   m_stop_state_entry_ego_speed = dp_double("stop_state_entry_ego_speed");
@@ -273,7 +286,8 @@ trajectory_follower::LateralOutput MpcLateralController::run(
   // //1-get the dt
   double steer_dt = getDt();
 
-  RCLCPP_ERROR(logger_, " THE DTTT IS %f. ", steer_dt);
+
+  // RCLCPP_ERROR(logger_, " THE DTTT IS %f. ", steer_dt);
 
   // const auto current_pose_latt = m_current_kinematic_state.pose.pose;
 
@@ -295,9 +309,9 @@ trajectory_follower::LateralOutput MpcLateralController::run(
 
   // //3-get the lateral error
   double steer_lat_error = mpc_pid_data.lateral_err;
-  double steer_yaw_error = mpc_pid_data.yaw_err;
+  // double steer_yaw_error = mpc_pid_data.yaw_err;
 
-  RCLCPP_ERROR(logger_, " THE ERROR IS %f and %f. ", steer_lat_error, steer_yaw_error);
+  // RCLCPP_ERROR(logger_, " THE ERROR IS %f and %f. ", steer_lat_error, steer_yaw_error);
 
   Lateral ctrl_cmd;
   Trajectory predicted_traj;
@@ -343,11 +357,15 @@ trajectory_follower::LateralOutput MpcLateralController::run(
       input_data.current_steering.steering_tire_angle);  // use unbiased steering
     ctrl_cmd.steering_tire_angle += steering_offset_->getOffset();
   }
-  current_steer_buffer.push_back(m_current_steering.steering_tire_angle);
-  if (current_steer_buffer.size() > 5){
-    current_steer_buffer.pop_front();
 
-  }
+
+
+
+// ...
+current_steer_buffer.push_back(truncate3(m_current_steering.steering_tire_angle));
+if (current_steer_buffer.size() > 5) {
+    current_steer_buffer.pop_front();
+}
 
 
   double diff_error;
@@ -362,32 +380,98 @@ trajectory_follower::LateralOutput MpcLateralController::run(
   int_error = int_error + (steer_lat_error * steer_dt);
   p_int = std::clamp(int_error, pid_int_min_, pid_int_max_);
 
-  if (
-    current_steer_buffer[3] == current_steer_buffer[2] and
-    current_steer_buffer[2] == current_steer_buffer[1]) {
-    if (m_current_steering.steering_tire_angle > 0) {
-      ctrl_cmd.steering_tire_angle =
-        ctrl_cmd.steering_tire_angle -
-        (pid_kp_ * steer_lat_error + pid_kd_ * diff_error + pid_ki_ * p_int) - 0.002;
+  // if (
+  //   current_steer_buffer[4] == current_steer_buffer[3] and
+  //   current_steer_buffer[3] == current_steer_buffer[2] and
+  //   current_steer_buffer[2] == current_steer_buffer[1]) {
+  //   // RCLCPP_ERROR(logger_, " THE ERROR IS %f. ", steer_lat_error);
+  //   if (steer_lat_error < error_tresh and steer_lat_error > -error_tresh) {
+  //     ctrl_cmd.steering_tire_angle = 0.2*ctrl_cmd.steering_tire_angle;
+  //   }
+  // }
+    // if (m_current_steering.steering_tire_angle > 0) {
+    //   ctrl_cmd.steering_tire_angle =
+    //     ctrl_cmd.steering_tire_angle -
+    //     (pid_kp_ * steer_lat_error + pid_kd_ * diff_error + pid_ki_ * p_int) + 0.0001;
 
-    } else {
-      ctrl_cmd.steering_tire_angle =
-        ctrl_cmd.steering_tire_angle -
-        (pid_kp_ * steer_lat_error + pid_kd_ * diff_error + pid_ki_ * p_int) + 0.002;
+    // } else {
+    //   ctrl_cmd.steering_tire_angle =
+    //     ctrl_cmd.steering_tire_angle -
+    //     (pid_kp_ * steer_lat_error + pid_kd_ * diff_error + pid_ki_ * p_int) -
+    //     0.0001;  // dont forget to remove the yaw
+    // }
+//   } else 
+    // if (
+    // current_steer_buffer[4] != current_steer_buffer[3] and
+    // current_steer_buffer[3] == current_steer_buffer[2] and
+    // current_steer_buffer[2] == current_steer_buffer[1]) {
+    // ctrl_cmd.steering_tire_angle = 0.1*ctrl_cmd.steering_tire_angle;
+    // }
+
+    // steer_counter++;
+    // Lateral damp{};
+    // damp.steering_tire_angle = 0.0;
+    // damp.steering_tire_rotation_rate = 0.0;
+    // std::fill(ctrl_cmd_horizon.controls.begin(),
+    //       ctrl_cmd_horizon.controls.end(),
+    //       damp);
+    //   RCLCPP_ERROR(
+    // logger_, " BOOM BOOM BOOM BOOM  %f . ", ctrl_cmd.steering_tire_angle - 4.5*ctrl_cmd.steering_tire_angle);
+    // RCLCPP_ERROR(
+    // logger_, " BOOM BOOM BOOM BOOM  %f . ", ctrl_cmd.steering_tire_angle - 4.5*ctrl_cmd.steering_tire_angle);
+    // RCLCPP_ERROR(
+    // logger_, " BOOM BOOM BOOM BOOM  %f . ", ctrl_cmd.steering_tire_angle - 4.5*ctrl_cmd.steering_tire_angle);
+    //       RCLCPP_ERROR(
+    // logger_, " BOOM BOOM BOOM BOOM  %f . ", ctrl_cmd.steering_tire_angle - 4.5*ctrl_cmd.steering_tire_angle);
+    // RCLCPP_ERROR(
+    // logger_, " BOOM BOOM BOOM BOOM  %f . ", ctrl_cmd.steering_tire_angle - 4.5*ctrl_cmd.steering_tire_angle);
+    // RCLCPP_ERROR(
+    // logger_, " BOOM BOOM BOOM BOOM  %f . ", ctrl_cmd.steering_tire_angle - 4.5*ctrl_cmd.steering_tire_angle);
+    //       RCLCPP_ERROR(
+    // logger_, " BOOM BOOM BOOM BOOM  %f . ", ctrl_cmd.steering_tire_angle - 4.5*ctrl_cmd.steering_tire_angle);
+    // RCLCPP_ERROR(
+    // logger_, " BOOM BOOM BOOM BOOM  %f . ", ctrl_cmd.steering_tire_angle - 4.5*ctrl_cmd.steering_tire_angle);
+    // RCLCPP_ERROR(
+    // logger_, " BOOM BOOM BOOM BOOM  %f . ", ctrl_cmd.steering_tire_angle - 4.5*ctrl_cmd.steering_tire_angle);
+//       for (const auto & c : ctrl_cmd_horizon.controls) {
+//   RCLCPP_ERROR(logger_,
+//                "control: steering=%.6f",  // add time, velocity, etc., if present
+//                c.steering_tire_angle);
+// }
+//   }
+
+  if (steer_counter == -100) {
+    ctrl_cmd.steering_tire_angle =
+      ctrl_cmd.steering_tire_angle -
+      (pid_kp_ * steer_lat_error + pid_kd_ * diff_error + pid_ki_ * p_int);
+                    RCLCPP_ERROR(logger_,
+               "STEERING COUNTER IS %f",  // add time, velocity, etc., if present
+               ctrl_cmd.steering_tire_angle);
+                             RCLCPP_ERROR(logger_,
+               "STEERING COUNTER IS %f",  // add time, velocity, etc., if present
+               ctrl_cmd.steering_tire_angle);
+                             RCLCPP_ERROR(logger_,
+               "STEERING COUNTER IS %f",  // add time, velocity, etc., if present
+               ctrl_cmd.steering_tire_angle);
+               
+  }
+
+  if ( steer_counter > 1.0){
+
+    ctrl_cmd.steering_tire_angle = 0.001;
+
+    steer_counter++;
+    if (steer_counter > 20.0){
+      steer_counter = 0.0;
     }
-  }else{
-
-  ctrl_cmd.steering_tire_angle =
-    ctrl_cmd.steering_tire_angle -
-    (pid_kp_ * steer_lat_error + pid_kd_ * diff_error + pid_ki_ * p_int);
 
   }
 
+
+
   const auto filtered_pid_steer = m_mpc->m_lpf_steer_pid.filter(ctrl_cmd.steering_tire_angle);
 
-  RCLCPP_ERROR(
-    logger_, " BEFORE AND AFTER FILTER IS %f and %f. ", ctrl_cmd.steering_tire_angle,
-    filtered_pid_steer);
+
 
   ctrl_cmd.steering_tire_angle = filtered_pid_steer;
 
@@ -431,14 +515,18 @@ trajectory_follower::LateralOutput MpcLateralController::run(
   steer_prev_error = steer_lat_error;
   
 
-  RCLCPP_ERROR(logger_, " CURRENT STEER_01 IS %f. ", current_steer_buffer[4]);
-  RCLCPP_ERROR(logger_, " CURRENT STEER_02 IS %f. ", current_steer_buffer[3]);
-  RCLCPP_ERROR(logger_, " CURRENT STEER_03 IS %f. ", current_steer_buffer[2]);
-  RCLCPP_ERROR(logger_, " CURRENT STEER_04 IS %f. ", current_steer_buffer[1]);
-  RCLCPP_ERROR(logger_, " THE INPUT COMMAND IS %f. ", ctrl_cmd.steering_tire_angle);
+  // RCLCPP_ERROR(logger_, " CURRENT STEER_01 IS %f,%f,%f,%f,%f. ", current_steer_buffer[4],current_steer_buffer[3],current_steer_buffer[2],current_steer_buffer[1],current_steer_buffer[0]);
 
-  RCLCPP_ERROR(logger_, " THE ERROR IS %f. ",steer_lat_error );
-  RCLCPP_ERROR(logger_, " THE INTEGRAL ERROR IS %f. ", int_error);
+  // RCLCPP_ERROR(logger_, " THE INPUT COMMAND IS %f. ", ctrl_cmd.steering_tire_angle);
+
+
+  // RCLCPP_ERROR(logger_, " THE INTEGRAL ERROR IS %f. ", int_error);
+//   for (const auto & c : ctrl_cmd_horizon.controls) {
+//   RCLCPP_ERROR(logger_,
+//                "control: steering=%.6f",  // add time, velocity, etc., if present
+//                c.steering_tire_angle);
+// }
+
 
   return createLateralOutput(ctrl_cmd, mpc_solved_status.result, ctrl_cmd_horizon);
 }

@@ -81,6 +81,8 @@
     double pid_kd_ ;
     double pid_int_min_;
     double pid_int_max_;
+    double steer_counter;
+    double error_tresh;
 
     // Ego vehicle speed threshold to enter the stop state.
     double m_stop_state_entry_ego_speed;
