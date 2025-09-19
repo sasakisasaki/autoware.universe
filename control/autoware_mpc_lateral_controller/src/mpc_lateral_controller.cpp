@@ -499,6 +499,7 @@ if (current_steer_buffer.size() > 5) {
 
   if (isStoppedState()) {
     // Reset input buffer
+    debug_throttle("Stopped state detected, use previous control command");
     for (auto & value : m_mpc->m_input_buffer) {
       value = m_ctrl_cmd_prev.steering_tire_angle;
     }
@@ -508,6 +509,7 @@ if (current_steer_buffer.size() > 5) {
   }
 
   if (!mpc_solved_status.result) {
+    debug_throttle("MPC is not solved, use stop control command");
     ctrl_cmd = getStopControlCommand();
   }
 
@@ -645,6 +647,7 @@ bool MpcLateralController::isStoppedState() const
 
   const auto latest_published_cmd = m_ctrl_cmd_prev;  // use prev_cmd as a latest published command
   if (m_keep_steer_control_until_converged && !isSteerConverged(latest_published_cmd)) {
+    debug_throttle("steering is not converged.");
     return false;  // not stopState: keep control
   }
 
