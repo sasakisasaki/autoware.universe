@@ -74,6 +74,14 @@ private:
   //!< @brief parameters for path smoothing
   TrajectoryFilteringParam m_trajectory_filtering_param;
 
+  double pid_kp_ ;
+  double pid_ki_;
+  double pid_kd_;
+  double pid_int_min_;
+  double pid_int_max_;
+  double steer_counter;
+  double error_tresh;
+
   // Ego vehicle speed threshold to enter the stop state.
   double m_stop_state_entry_ego_speed;
 
@@ -85,6 +93,9 @@ private:
 
   // max mpc output change threshold for 1 sec
   double m_mpc_converged_threshold_rps;
+
+  // control period
+  double m_lat_ctrl_period;
 
   // Time duration threshold to check if the trajectory shape has changed.
   double m_new_traj_duration_time;
@@ -101,6 +112,8 @@ private:
   // trajectory buffer for detecting new trajectory
   std::deque<Trajectory> m_trajectory_buffer;
 
+  std::deque<double> current_steer_buffer;  // MPC output buffer for delay time compensation.
+
   void setStatus(diagnostic_updater::DiagnosticStatusWrapper & stat);
 
   void setupDiag();
@@ -110,6 +123,9 @@ private:
   // Check is mpc output converged
   bool m_is_mpc_history_filled{false};
 
+  // for calculating dt
+  std::shared_ptr<rclcpp::Time> m_prev_control_time{nullptr};
+
   // store the last mpc outputs for 1 sec
   std::vector<std::pair<Lateral, rclcpp::Time>> m_mpc_steering_history{};
 
@@ -118,6 +134,11 @@ private:
 
   // check if the mpc steering output is converged
   bool isMpcConverged();
+
+  /**
+   * @brief calculate time between current and previous one
+   */
+  double getDt();
 
   // measured kinematic state
   Odometry m_current_kinematic_state;
@@ -133,6 +154,10 @@ private:
 
   // Previous control command for path following.
   Lateral m_ctrl_cmd_prev;
+
+  double steer_prev_error = 0;
+  double int_error = 0;
+  bool m_is_first_time = true;
 
   //  Flag indicating whether the first trajectory has been received.
   bool m_has_received_first_trajectory = false;

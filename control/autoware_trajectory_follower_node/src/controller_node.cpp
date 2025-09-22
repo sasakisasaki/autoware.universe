@@ -295,7 +295,7 @@ if (std::abs(truncate3(the_curve[0])) > 0.000){
 
   //we need to add the error threshold check 
   
-  out.lateral = 0.2*lat_out.control_cmd;
+  //out.lateral = 0.2*lat_out.control_cmd;
 }
 
 
