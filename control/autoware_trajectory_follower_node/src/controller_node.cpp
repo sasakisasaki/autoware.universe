@@ -14,39 +14,35 @@
 
 #include "autoware/trajectory_follower_node/controller_node.hpp"
 
+#include "autoware/interpolation/linear_interpolation.hpp"
+#include "autoware/motion_utils/trajectory/trajectory.hpp"
+#include "autoware/mpc_lateral_controller/mpc.hpp"
 #include "autoware/mpc_lateral_controller/mpc_lateral_controller.hpp"
+#include "autoware/mpc_lateral_controller/mpc_utils.hpp"
 #include "autoware/pid_longitudinal_controller/pid_longitudinal_controller.hpp"
 #include "autoware/pure_pursuit/autoware_pure_pursuit_lateral_controller.hpp"
 #include "autoware_utils/ros/marker_helper.hpp"
 
 #include <autoware/trajectory_follower_base/lateral_controller_base.hpp>
-
-
-#include "autoware/mpc_lateral_controller/mpc_utils.hpp"
-
-
-#include "autoware/interpolation/linear_interpolation.hpp"
-#include "autoware/motion_utils/trajectory/trajectory.hpp"
-
 #include <autoware_utils_geometry/geometry.hpp>
 
 #include <algorithm>
+#include <cmath>
 #include <limits>
 #include <memory>
 #include <string>
 #include <utility>
 #include <vector>
-#include <cmath>
 
-
-
-namespace {
+namespace
+{
 // Truncate to 3 decimals, e.g. 0.328978 -> 0.328  (toward zero)
-inline double truncate3(double x) {
+inline double truncate3(double x)
+{
   constexpr double scale = 1000.0;
   return std::trunc(x * scale) / scale;
 }
-}
+}  // namespace
 
 namespace
 {
@@ -76,9 +72,13 @@ namespace mpc = autoware::motion::control::mpc_lateral_controller;
 Controller::Controller(const rclcpp::NodeOptions & node_options) : Node("controller", node_options)
 {
   using std::placeholders::_1;
+  mm_mpc_ = std::make_unique<autoware::motion::control::mpc_lateral_controller::MPC>(*this);
 
   const double ctrl_period = declare_parameter<double>("ctrl_period");
   timeout_thr_sec_ = declare_parameter<double>("timeout_thr_sec");
+  error_threshold = declare_parameter<double>("error_threshold");
+  error_compensation = declare_parameter<double>("error_compensation");
+
   // NOTE: It is possible that using control_horizon could be expected to enhance performance,
   // but it is not a formal interface topic, only an experimental one.
   // So it is disabled by default.
@@ -212,9 +212,7 @@ bool Controller::isTimeOut(
 boost::optional<trajectory_follower::InputData> Controller::createInputData(rclcpp::Clock & clock)
 {
   if (!processData(clock)) {
-
-        RCLCPP_INFO_THROTTLE(
-      get_logger(), *get_clock(), 5000, "CONTROL DEBUG.");
+    RCLCPP_INFO_THROTTLE(get_logger(), *get_clock(), 5000, "CONTROL DEBUG.");
     return {};
   }
 
@@ -271,34 +269,66 @@ void Controller::callbackTimerControl()
 
   // IF IT IS NOT A STRAIGHT LINE (curve, lane change, from static)
 
+  // IF IT IS A STRAIGHT LINE
+  // APPLY CONTROL LOGIC
 
-    //IF IT IS A STRAIGHT LINE 
-  //APPLY CONTROL LOGIC
+  //   // calculate curvature
+  // MPCUtils::calcTrajectoryCurvature(
+  //     param.curvature_smoothing_num_traj, param.curvature_smoothing_num_ref_steer,
+  //     mpc_traj_smoothed);
+  auto the_mpc_traj = mpc::MPCUtils::convertToMPCTrajectory(*current_trajectory_ptr_);
+  auto the_curve = mpc::MPCUtils::calcTrajectoryCurvature(15, the_mpc_traj);
+  // double lat_error_error = mpc::MPCUtils::calcLateralError(const Pose & ego_pose, const Pose &
+  // ref_pose);
 
+  // const auto reference_trajectory = sub_ref_path_;
 
+  double steer_lat_error_0 = lat_out.lateral_error;
+  RCLCPP_INFO(get_logger(), "ERRORRRRRRRRRRRRRRRRRRRRRRRRRRR. %f ", steer_lat_error_0);
+  // RCLCPP_INFO(get_logger(), "ERRORRRRRRRRRRRRRRRRRRRRRRRRRRR. %f ", *current_odometry_ptr_);
 
-//   // calculate curvature
-// MPCUtils::calcTrajectoryCurvature(
-//     param.curvature_smoothing_num_traj, param.curvature_smoothing_num_ref_steer, mpc_traj_smoothed);
-auto the_mpc_traj = mpc::MPCUtils::convertToMPCTrajectory(*current_trajectory_ptr_);
-auto the_curve = mpc::MPCUtils::calcTrajectoryCurvature(15, the_mpc_traj);
+  // RCLCPP_INFO (get_logger(), "HOKINAWA HOKINAWA HOKINAWA %f and %f. ", err_x, err_y );
+  // // RCLCPP_INFO (get_logger(), "HOKINAWA HOKINAWA HOKINAWA %f and %f and %f",
+  // truncate3(the_curve[0]), truncate3(the_curve[1]), truncate3(the_curve[2]));
+  // // RCLCPP_INFO (get_logger(), "HOKINAWA HOKINAWA HOKINAWA %f and %f and %f",
+  // truncate3(the_curve[0]), truncate3(the_curve[1]), truncate3(the_curve[2]));
 
-//RCLCPP_INFO (get_logger(), "HOKINAWA HOKINAWA HOKINAWA %f . ", out.lateral.steering_tire_angle );
-RCLCPP_INFO (get_logger(), "HOKINAWA HOKINAWA HOKINAWA %f and %f and %f", truncate3(the_curve[0]), truncate3(the_curve[1]), truncate3(the_curve[2]));
+  if (std::abs(truncate3(the_curve[0])) > 0.000) {
+    out.lateral = lat_out.control_cmd;
 
-if (std::abs(truncate3(the_curve[0])) > 0.000){
+  } else {
+    RCLCPP_INFO(get_logger(), "DISABLE CONTROLLER");
 
-  RCLCPP_INFO (get_logger(), "DISABLE THE REGIME REGIME REGIME. ");
-  out.lateral = lat_out.control_cmd;
+    // we need to add the error threshold check
+    if (std::abs(steer_lat_error_0) > 0.03*error_threshold) {
+      RCLCPP_INFO(get_logger(), "KICK_IN");
 
-}else {
+      out.lateral = lat_out.control_cmd;
+      out.lateral.steering_tire_angle = 0.4 * error_compensation* out.lateral.steering_tire_angle;  // 0.4
+      } else if (std::abs(steer_lat_error_0) > 0.02*error_threshold) {
+      out.lateral = lat_out.control_cmd;
+      out.lateral.steering_tire_angle = 0.3 * error_compensation* out.lateral.steering_tire_angle;  // 0.25
+      } else if (std::abs(steer_lat_error_0) > 0.018*error_threshold) {
+      out.lateral = lat_out.control_cmd;
+      out.lateral.steering_tire_angle = 0.25 * error_compensation* out.lateral.steering_tire_angle;  // 0.25
+    } else if (std::abs(steer_lat_error_0) > 0.015*error_threshold) {
+      out.lateral = lat_out.control_cmd;
+      out.lateral.steering_tire_angle = 0.15 * error_compensation* out.lateral.steering_tire_angle;  // 0.25
+    } else if (std::abs(steer_lat_error_0) > 0.009*error_threshold) {
+      out.lateral = lat_out.control_cmd;
+      out.lateral.steering_tire_angle = 0.5 * error_compensation* out.lateral.steering_tire_angle;  // 0.25
+    } else if (std::abs(steer_lat_error_0) > 0.005*error_threshold) {
+      out.lateral = lat_out.control_cmd;
+      out.lateral.steering_tire_angle = 0.021 * error_compensation* out.lateral.steering_tire_angle;  // 0.1
 
-  //we need to add the error threshold check 
-  
-  //out.lateral = 0.2*lat_out.control_cmd;
-}
+    } else {
+      RCLCPP_INFO(get_logger(), "NO CORRECTION");
 
-
+      out.lateral.steering_tire_angle = 0.8 * error_compensation* out.lateral.steering_tire_angle;  // 0.4
+      out.lateral = lat_out.control_cmd;
+      // out.lateral.steering_tire_angle = 0.0 * out.lateral.steering_tire_angle;
+    }
+  }
 
   out.longitudinal = lon_out.control_cmd;
   control_cmd_pub_->publish(out);
