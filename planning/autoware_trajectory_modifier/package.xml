@@ -9,6 +9,7 @@
   <maintainer email="go.sakayori@tier4.jp">Go Sakayori</maintainer>
   <maintainer email="shintaro.sakoda@tier4.jp">Shintaro Sakoda</maintainer>
   <maintainer email="alqudah.mohammad@tier4.jp">Alqudah Mohammad</maintainer>
+  <maintainer email="maxime.clement@tier4.jp">Maxime Clement</maintainer>
 
   <license>Apache License 2.0</license>
 
@@ -16,6 +17,7 @@
 
   <buildtool_depend>ament_cmake_auto</buildtool_depend>
 
+  <depend>autoware_agnocast_wrapper</depend>
   <depend>autoware_internal_planning_msgs</depend>
   <depend>autoware_motion_utils</depend>
   <depend>autoware_path_optimizer</depend>
